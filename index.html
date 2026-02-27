@@ -37,6 +37,44 @@
         
         .last-updated { color: #888; font-size: 0.9rem; }
         
+        /* Priority Project Banner */
+        .priority-banner {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 165, 0, 0.25) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+        }
+        
+        .priority-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .priority-icon { font-size: 1.5rem; }
+        .priority-title { font-size: 1.3rem; font-weight: 700; color: #ffd700; }
+        .priority-subtitle { font-size: 0.85rem; color: #ffecb3; margin-left: auto; }
+        
+        .priority-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .priority-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .priority-check { color: #00ff88; }
+        .priority-pending { color: #ffc107; }
+        .priority-wait { color: #ff6b6b; }
+        
         .agents-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -56,6 +94,11 @@
         .agent-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .agent-card.priority-agent {
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
         
         .agent-header {
@@ -89,6 +132,12 @@
             background: rgba(255, 193, 7, 0.2);
             color: #ffc107;
             border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .status-priority {
+            background: rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.5);
         }
         
         .task-stats {
@@ -153,6 +202,7 @@
         .task-item.done { border-left-color: #00ff88; opacity: 0.7; }
         .task-item.active { border-left-color: #00d4ff; }
         .task-item.pending { border-left-color: #ff6b6b; }
+        .task-item.priority { border-left-color: #ffd700; background: rgba(255, 215, 0, 0.1); }
         
         .expand-hint {
             text-align: center;
@@ -231,8 +281,29 @@
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Friday, February 27, 2026 — 12:44 PM PST</p>
+            <p class="last-updated">Last Updated: Thursday, February 27, 2026 — 1:25 PM PST</p>
         </header>
+        
+        <!-- Priority Project Banner -->
+        <div class="priority-banner">
+            <div class="priority-header">
+                <span class="priority-icon">🇬🇭</span>
+                <span class="priority-title">Ghana Right of Abode Application</span>
+                <span class="priority-subtitle">IN PROGRESS — Team: Kojo, Kofi, Ama</span>
+            </div>
+            <div class="priority-details">
+                <div class="priority-item"><span class="priority-check">✅</span> Passport (hi-res) collected</div>
+                <div class="priority-item"><span class="priority-check">✅</span> 4 headshots collected</div>
+                <div class="priority-item"><span class="priority-check">✅</span> Yellow fever cert ready</div>
+                <div class="priority-item"><span class="priority-check">✅</span> CDI Economic Letter drafted</div>
+                <div class="priority-item"><span class="priority-check">✅</span> Application letter drafted</div>
+                <div class="priority-item"><span class="priority-pending">⏳</span> Nana Kwame attestation pending</div>
+                <div class="priority-item"><span class="priority-pending">⏳</span> Teresia Kamau attestation pending</div>
+                <div class="priority-item"><span class="priority-pending">⏳</span> Ghana address needed</div>
+                <div class="priority-item"><span class="priority-wait">❌</span> Police clearance (in-Ghana)</div>
+                <div class="priority-item"><span class="priority-wait">❌</span> Medical report (in-Ghana)</div>
+            </div>
+        </div>
         
         <div class="agents-grid">
             <!-- Maria -->
@@ -247,11 +318,11 @@
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'maria-done')">
-                        <div class="stat-value">16</div>
+                        <div class="stat-value">18</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'maria-active')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">4</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'maria-pending')">
@@ -276,13 +347,16 @@
                     <div class="task-item done">Set up daily Asana sync cron</div>
                     <div class="task-item done">Analyzed desktop folders (BBB, CBU, EPF)</div>
                     <div class="task-item done">Strategic insights documented</div>
-                    <div class="task-item done">Expanded team to 9 agents</div>
+                    <div class="task-item done">Expanded team to 11 agents</div>
+                    <div class="task-item done">Created ghana-right-of-abode folder structure</div>
+                    <div class="task-item done">First Sage call facilitated (Feb 27)</div>
                 </div>
                 <div class="task-list" id="maria-active">
                     <h4>🔄 Active</h4>
                     <div class="task-item active">Support Erica with daily requests</div>
                     <div class="task-item active">Coordinate agent team</div>
                     <div class="task-item active">Monitor and improve systems</div>
+                    <div class="task-item active priority">🇬🇭 Ghana RoA project coordination</div>
                 </div>
                 <div class="task-list" id="maria-pending">
                     <h4>📋 Pending</h4>
@@ -308,11 +382,11 @@
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'betty-active')">
-                        <div class="stat-value">4</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'betty-pending')">
-                        <div class="stat-value">0</div>
+                        <div class="stat-value">1</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -327,6 +401,7 @@
                     <div class="task-item active">Triage & route tasks to team</div>
                     <div class="task-item active">Keep Team Directory updated</div>
                     <div class="task-item active">Check in with Josh for dashboard</div>
+                    <div class="task-item active priority">📧 Flag Maria's email (needs checking)</div>
                 </div>
                 <div class="task-list" id="betty-pending">
                     <h4>📋 Pending</h4>
@@ -410,10 +485,11 @@
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Continuous dashboard updates</div>
                     <div class="task-item done">Updated all agent names (Feb 27)</div>
+                    <div class="task-item done">Added Ghana RoA priority banner</div>
                 </div>
                 <div class="task-list" id="josh-active">
                     <h4>🔄 Active (Cron: Every hour)</h4>
-                    <div class="task-item active">Check all 9 agents via MEMORY.md</div>
+                    <div class="task-item active">Check all 11 agents via MEMORY.md</div>
                     <div class="task-item active">Update dashboard with fresh data</div>
                     <div class="task-item active">Push to GitHub automatically</div>
                 </div>
@@ -433,10 +509,10 @@
                         <div class="agent-role">File Org & Cleanup • System Admin</div>
                     </div>
                 </div>
-                <span class="status-badge status-idle">On-Demand</span>
+                <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'felix-done')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'felix-active')">
@@ -453,6 +529,8 @@
                     <div class="task-item done">Cleaned 64 screenshots from Desktop</div>
                     <div class="task-item done">Organized workspace folders</div>
                     <div class="task-item done">Created STRUCTURE.md</div>
+                    <div class="task-item done">Created ghana-right-of-abode folder</div>
+                    <div class="task-item done">Organized RoA documents structure</div>
                 </div>
                 <div class="task-list" id="felix-active">
                     <h4>🔄 Active</h4>
@@ -465,8 +543,8 @@
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
-            <!-- Kofi -->
-            <div class="agent-card">
+            <!-- Kofi - PRIORITY -->
+            <div class="agent-card priority-agent">
                 <div class="agent-header">
                     <span class="agent-emoji">🎵</span>
                     <div>
@@ -474,18 +552,18 @@
                         <div class="agent-role">Nineteen Sage Manager • Artist Mgmt</div>
                     </div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
+                <span class="status-badge status-priority pulse">Priority</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'kofi-done')">
-                        <div class="stat-value">8</div>
+                        <div class="stat-value">12</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'kofi-active')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'kofi-pending')">
-                        <div class="stat-value">8</div>
+                        <div class="stat-value">6</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -499,20 +577,24 @@
                     <div class="task-item done">Confirmed location: Accra, Ghana</div>
                     <div class="task-item done">Accra apartment financial model created</div>
                     <div class="task-item done">Contract status audit completed</div>
+                    <div class="task-item done">📞 First call with Sage (Feb 27) ✨</div>
+                    <div class="task-item done">Call transcript documented</div>
+                    <div class="task-item done">ROA-COORDINATION.md created</div>
+                    <div class="task-item done">Identified Sage housing need</div>
                 </div>
                 <div class="task-list" id="kofi-active">
                     <h4>🔄 Active</h4>
-                    <div class="task-item active">Research Spotify/Apple Music profiles</div>
-                    <div class="task-item active">Find additional streaming platforms</div>
-                    <div class="task-item active">Document collaborator network</div>
+                    <div class="task-item active priority">🏠 Apartment search for Sage (w/ Ama)</div>
+                    <div class="task-item active priority">📧 Contact Teresia Kamau for attestation</div>
+                    <div class="task-item active">📝 Resend management agreement via DocuSign</div>
+                    <div class="task-item active">🎬 Send music video treatment to Sage/Dorla</div>
+                    <div class="task-item active">📋 Share marketing plan with team</div>
                 </div>
                 <div class="task-list" id="kofi-pending">
                     <h4>📋 Pending</h4>
-                    <div class="task-item pending">Get full discography</div>
-                    <div class="task-item pending">Find Twitter/X & TikTok</div>
-                    <div class="task-item pending">Visual identity & press photos</div>
-                    <div class="task-item pending">Artist bio & background</div>
-                    <div class="task-item pending">Upcoming release plans</div>
+                    <div class="task-item pending">Get Teresia Ghana Card copy</div>
+                    <div class="task-item pending">Plan Ghana trip (2-3 weeks)</div>
+                    <div class="task-item pending">Shoot MHMM music video</div>
                     <div class="task-item pending">Build promotion strategy</div>
                     <div class="task-item pending">Set up streaming monitoring</div>
                     <div class="task-item pending">Create promo calendar</div>
@@ -520,8 +602,8 @@
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
-            <!-- Kojo -->
-            <div class="agent-card">
+            <!-- Kojo - PRIORITY -->
+            <div class="agent-card priority-agent">
                 <div class="agent-header">
                     <span class="agent-emoji">🎚️</span>
                     <div>
@@ -529,14 +611,14 @@
                         <div class="agent-role">CDI Operations • Nonprofit & NAMM</div>
                     </div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
+                <span class="status-badge status-priority pulse">Priority</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'kojo-done')">
-                        <div class="stat-value">14</div>
+                        <div class="stat-value">17</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'kojo-active')">
-                        <div class="stat-value">6</div>
+                        <div class="stat-value">7</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'kojo-pending')">
@@ -560,15 +642,19 @@
                     <div class="task-item done">Sustainability roadmap (4-year plan)</div>
                     <div class="task-item done">Training curriculum mapped</div>
                     <div class="task-item done">2026 roadmap finalized</div>
+                    <div class="task-item done">📝 CDI Economic Contribution Letter drafted ✨</div>
+                    <div class="task-item done">Nana Kwame attestation request drafted</div>
+                    <div class="task-item done">Created /agents/cdi/right-of-abode/ folder</div>
                 </div>
                 <div class="task-list" id="kojo-active">
                     <h4>🔄 Active</h4>
+                    <div class="task-item active priority">🇬🇭 Contact Nana Kwame for attestation letter</div>
+                    <div class="task-item active priority">📄 Get Nana Kwame Ghana Card copy</div>
                     <div class="task-item active">Submit Form 1023-EZ ($275)</div>
                     <div class="task-item active">NAMM Grant application</div>
                     <div class="task-item active">Ghana CLG registration</div>
                     <div class="task-item active">Partnership outreach automation</div>
                     <div class="task-item active">Website updates (cdi-global.org)</div>
-                    <div class="task-item active">501(c)(3) documentation support</div>
                 </div>
                 <div class="task-list" id="kojo-pending">
                     <h4>📋 Pending</h4>
@@ -582,6 +668,53 @@
                     <div class="task-item pending">Alumni network platform</div>
                     <div class="task-item pending">Lagos/Nairobi expansion research</div>
                     <div class="task-item pending">Train-the-trainer program</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Ama - PRIORITY (NEW) -->
+            <div class="agent-card priority-agent">
+                <div class="agent-header">
+                    <span class="agent-emoji">🏠</span>
+                    <div>
+                        <div class="agent-name">Ama</div>
+                        <div class="agent-role">Ghana Real Estate • RoA Address</div>
+                    </div>
+                </div>
+                <span class="status-badge status-priority pulse">Priority</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'ama-done')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'ama-active')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'ama-pending')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="ama-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Researched Accra neighborhoods</div>
+                    <div class="task-item done">Created apartment financial model</div>
+                    <div class="task-item done">Identified target areas (East Legon, Osu)</div>
+                    <div class="task-item done">Compiled Ghana real estate sites list</div>
+                </div>
+                <div class="task-list" id="ama-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active priority">🏠 Find 2-3BR apartment for Sage + Erica</div>
+                    <div class="task-item active">📍 Coordinate with Dorla on realtors</div>
+                    <div class="task-item active">💰 Compare prices: $95-560/month range</div>
+                </div>
+                <div class="task-list" id="ama-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Contact meQasa listings</div>
+                    <div class="task-item pending">Verify CDI synergy potential</div>
+                    <div class="task-item pending">Short-term rental analysis</div>
+                    <div class="task-item pending">Present top 3 options to Erica</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -643,7 +776,7 @@
                         <div class="agent-role">Career Manager • Erica D. Hayes Brand</div>
                     </div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
+                <span class="status-badge status-idle">Needs Review</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'vivian-done')">
                         <div class="stat-value">8</div>
@@ -654,7 +787,7 @@
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'vivian-pending')">
-                        <div class="stat-value">4</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -681,6 +814,7 @@
                     <div class="task-item pending">Fix team gallery ("No items found")</div>
                     <div class="task-item pending">Add client logo carousel</div>
                     <div class="task-item pending">Add testimonials section</div>
+                    <div class="task-item pending">⚠️ Agent review needed (erica-hayes dir)</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -735,23 +869,23 @@
         
         <div class="summary-bar">
             <div class="summary-stat">
-                <div class="summary-value">10</div>
+                <div class="summary-value">11</div>
                 <div class="summary-label">Total Agents</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">9</div>
+                <div class="summary-value">10</div>
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">62</div>
+                <div class="summary-value">75</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">31</div>
+                <div class="summary-value">39</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">33</div>
+                <div class="summary-value">37</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
