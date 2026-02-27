@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Command Center | Erica's AI Team</title>
+    <meta http-equiv="refresh" content="30">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #ff006e, #fb5607, #ffbe0b, #00f5d4, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        .header .last-updated {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .agent-card {
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        /* Maria - Hot Pink */
+        .agent-maria {
+            border-color: #ff006e;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
+        }
+        .agent-maria::before { background: linear-gradient(90deg, #ff006e, #ff4d94); }
+        .agent-maria .agent-emoji { background: #ff006e; }
+        .agent-maria .task-active { border-left-color: #ff006e; }
+        
+        /* CDI - Electric Orange */
+        .agent-cdi {
+            border-color: #fb5607;
+            box-shadow: 0 0 30px rgba(251, 86, 7, 0.3);
+        }
+        .agent-cdi::before { background: linear-gradient(90deg, #fb5607, #ff8c42); }
+        .agent-cdi .agent-emoji { background: #fb5607; }
+        .agent-cdi .task-active { border-left-color: #fb5607; }
+        
+        /* Sage - Neon Purple */
+        .agent-sage {
+            border-color: #8338ec;
+            box-shadow: 0 0 30px rgba(131, 56, 236, 0.3);
+        }
+        .agent-sage::before { background: linear-gradient(90deg, #8338ec, #a855f7); }
+        .agent-sage .agent-emoji { background: #8338ec; }
+        .agent-sage .task-active { border-left-color: #8338ec; }
+        
+        /* Career - Cyber Yellow */
+        .agent-career {
+            border-color: #ffbe0b;
+            box-shadow: 0 0 30px rgba(255, 190, 11, 0.3);
+        }
+        .agent-career::before { background: linear-gradient(90deg, #ffbe0b, #ffd60a); }
+        .agent-career .agent-emoji { background: #ffbe0b; color: #000; }
+        .agent-career .task-active { border-left-color: #ffbe0b; }
+        
+        /* CBU - Bright Teal */
+        .agent-cbu {
+            border-color: #00f5d4;
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.3);
+        }
+        .agent-cbu::before { background: linear-gradient(90deg, #00f5d4, #00bbf9); }
+        .agent-cbu .agent-emoji { background: #00f5d4; color: #000; }
+        .agent-cbu .task-active { border-left-color: #00f5d4; }
+        
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .agent-emoji {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .agent-info h2 {
+            font-size: 1.3rem;
+            margin-bottom: 3px;
+        }
+        
+        .agent-info .role {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .agent-status {
+            margin-left: auto;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-active {
+            background: #00ff88;
+            color: #000;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-idle {
+            background: #444;
+            color: #aaa;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .tasks-section {
+            margin-top: 15px;
+        }
+        
+        .tasks-section h3 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .task-count {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+        
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .task {
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border-left: 3px solid #444;
+            font-size: 0.9rem;
+        }
+        
+        .task-active {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .task-completed {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        
+        .task-time {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .no-tasks {
+            color: #555;
+            font-style: italic;
+            padding: 10px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .agent-maria .progress-fill { background: linear-gradient(90deg, #ff006e, #ff4d94); }
+        .agent-cdi .progress-fill { background: linear-gradient(90deg, #fb5607, #ff8c42); }
+        .agent-sage .progress-fill { background: linear-gradient(90deg, #8338ec, #a855f7); }
+        .agent-career .progress-fill { background: linear-gradient(90deg, #ffbe0b, #ffd60a); }
+        .agent-cbu .progress-fill { background: linear-gradient(90deg, #00f5d4, #00bbf9); }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #444;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .agents-grid { grid-template-columns: 1fr; }
+            .stats-bar { gap: 15px; }
+            .stat { padding: 10px 20px; }
+            .stat-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Agent Command Center</h1>
+        <div class="subtitle">Erica's AI Team Dashboard</div>
+        <div class="last-updated">Last updated: <span id="timestamp"></span> • Auto-refreshes every 30s</div>
+    </div>
+    
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-number" style="color: #00ff88;">5</div>
+            <div class="stat-label">Active Agents</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" style="color: #ffbe0b;">12</div>
+            <div class="stat-label">Tasks Completed Today</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" style="color: #00f5d4;">7</div>
+            <div class="stat-label">Tasks Remaining</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number" style="color: #8338ec;">4</div>
+            <div class="stat-label">Domains Covered</div>
+        </div>
+    </div>
+    
+    <div class="agents-grid">
+        <!-- Maria - Main Agent -->
+        <div class="agent-card agent-maria">
+            <div class="agent-header">
+                <div class="agent-emoji">🌸</div>
+                <div class="agent-info">
+                    <h2>Maria Perkins</h2>
+                    <div class="role">Main Agent • Personal Assistant</div>
+                </div>
+                <div class="agent-status status-active">Active</div>
+            </div>
+            <div class="tasks-section">
+                <h3>✅ Completed <span class="task-count">6</span></h3>
+                <div class="task-list">
+                    <div class="task task-completed">Fixed WhatsApp connection issue</div>
+                    <div class="task task-completed">Set up 4 specialized agents</div>
+                    <div class="task task-completed">Configured agent routing</div>
+                    <div class="task task-completed">Studied EPF website & GitHub</div>
+                    <div class="task task-completed">Studied BBTB GitHub</div>
+                    <div class="task task-completed">Building this dashboard</div>
+                </div>
+            </div>
+            <div class="tasks-section">
+                <h3>📋 Remaining <span class="task-count">2</span></h3>
+                <div class="task-list">
+                    <div class="task task-active">Connect Notion API</div>
+                    <div class="task">Keep dashboard updated</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+        </div>
+        
+        <!-- CDI Agent -->
+        <div class="agent-card agent-cdi">
+            <div class="agent-header">
+                <div class="agent-emoji">🎚️</div>
+                <div class="agent-info">
+                    <h2>CDI Agent</h2>
+                    <div class="role">Nonprofit Operations • NAMM Grant</div>
+                </div>
+                <div class="agent-status status-active">Active</div>
+            </div>
+            <div class="tasks-section">
+                <h3>✅ Completed <span class="task-count">4</span></h3>
+                <div class="task-list">
+                    <div class="task task-completed">Deep research on CDI files</div>
+                    <div class="task task-completed">Website audit (cdi-global.org)</div>
+                    <div class="task task-completed">GitHub repo analysis</div>
+                    <div class="task task-completed">Notion pipeline analysis — 13 AI opportunities identified</div>
+                </div>
+            </div>
+            <div class="tasks-section">
+                <h3>📋 Remaining <span class="task-count">3</span></h3>
+                <div class="task-list">
+                    <div class="task task-active">Support 501(c)(3) application</div>
+                    <div class="task">Automate partnership outreach</div>
+                    <div class="task">Update website with operational docs</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 57%;"></div>
+            </div>
+        </div>
+        
+        <!-- Sage Manager -->
+        <div class="agent-card agent-sage">
+            <div class="agent-header">
+                <div class="agent-emoji">🎵</div>
+                <div class="agent-info">
+                    <h2>Sage Manager</h2>
+                    <div class="role">Artist Management • Nineteen Sage</div>
+                </div>
+                <div class="agent-status status-idle">Idle</div>
+            </div>
+            <div class="tasks-section">
+                <h3>✅ Completed <span class="task-count">2</span></h3>
+                <div class="task-list">
+                    <div class="task task-completed">Initial workspace research</div>
+                    <div class="task task-completed">Saved Audiomack & Instagram profiles</div>
+                </div>
+            </div>
+            <div class="tasks-section">
+                <h3>📋 Remaining <span class="task-count">1</span></h3>
+                <div class="task-list">
+                    <div class="task">Get more artist info (discography, upcoming releases)</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 67%;"></div>
+            </div>
+        </div>
+        
+        <!-- Career Manager -->
+        <div class="agent-card agent-career">
+            <div class="agent-header">
+                <div class="agent-emoji">💡</div>
+                <div class="agent-info">
+                    <h2>Career Manager</h2>
+                    <div class="role">Lighting/Video Career • Endangered LX</div>
+                </div>
+                <div class="agent-status status-idle">Idle</div>
+            </div>
+            <div class="tasks-section">
+                <h3>✅ Completed <span class="task-count">2</span></h3>
+                <div class="task-list">
+                    <div class="task task-completed">Studied EricaDHayes.com portfolio</div>
+                    <div class="task task-completed">Audited EndangeredLX.com — flagged gaps</div>
+                </div>
+            </div>
+            <div class="tasks-section">
+                <h3>📋 Remaining <span class="task-count">1</span></h3>
+                <div class="task-list">
+                    <div class="task">Create EndangeredLX.com update task list</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 67%;"></div>
+            </div>
+        </div>
+        
+        <!-- CBU Assistant -->
+        <div class="agent-card agent-cbu">
+            <div class="agent-header">
+                <div class="agent-emoji">📚</div>
+                <div class="agent-info">
+                    <h2>CBU Assistant</h2>
+                    <div class="role">Academia • California Baptist University</div>
+                </div>
+                <div class="agent-status status-idle">Idle</div>
+            </div>
+            <div class="tasks-section">
+                <h3>✅ Completed <span class="task-count">0</span></h3>
+                <div class="task-list">
+                    <div class="no-tasks">No tasks completed yet</div>
+                </div>
+            </div>
+            <div class="tasks-section">
+                <h3>📋 Remaining <span class="task-count">0</span></h3>
+                <div class="task-list">
+                    <div class="no-tasks">Awaiting tasks — ready to help with course materials, student support</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        🌸 Maria Perkins • Agent Command Center • Built for Erica D. Hayes<br>
+        Dashboard auto-updates every 30 seconds • Manual refresh: ⌘R or F5
+    </div>
+    
+    <script>
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const options = { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('timestamp').textContent = now.toLocaleDateString('en-US', options);
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+    </script>
+</body>
+</html>
