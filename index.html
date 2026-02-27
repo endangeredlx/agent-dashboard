@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agent Command Center</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -19,10 +15,7 @@
             padding: 20px;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
         
         header {
             text-align: center;
@@ -42,14 +35,11 @@
             margin-bottom: 10px;
         }
         
-        .last-updated {
-            color: #888;
-            font-size: 0.9rem;
-        }
+        .last-updated { color: #888; font-size: 0.9rem; }
         
         .agents-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
@@ -75,19 +65,9 @@
             margin-bottom: 16px;
         }
         
-        .agent-emoji {
-            font-size: 2rem;
-        }
-        
-        .agent-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .agent-role {
-            font-size: 0.85rem;
-            color: #aaa;
-        }
+        .agent-emoji { font-size: 2rem; }
+        .agent-name { font-size: 1.2rem; font-weight: 600; }
+        .agent-role { font-size: 0.85rem; color: #aaa; }
         
         .status-badge {
             display: inline-block;
@@ -111,16 +91,11 @@
             border: 1px solid rgba(255, 193, 7, 0.3);
         }
         
-        .status-unknown {
-            background: rgba(128, 128, 128, 0.2);
-            color: #888;
-            border: 1px solid rgba(128, 128, 128, 0.3);
-        }
-        
         .task-stats {
             display: flex;
             justify-content: space-between;
             gap: 10px;
+            margin-bottom: 12px;
         }
         
         .stat {
@@ -129,23 +104,62 @@
             padding: 10px;
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
         }
         
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .stat:hover {
+            background: rgba(0,0,0,0.4);
+            transform: scale(1.05);
         }
         
-        .stat-label {
-            font-size: 0.7rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .stat-value { font-size: 1.5rem; font-weight: 700; }
+        .stat-label { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
         
         .completed .stat-value { color: #00ff88; }
         .in-progress .stat-value { color: #00d4ff; }
         .remaining .stat-value { color: #ff6b6b; }
+        
+        .task-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        .task-list.expanded {
+            max-height: 500px;
+            padding: 12px;
+        }
+        
+        .task-list h4 {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .task-item {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            border-left: 3px solid;
+        }
+        
+        .task-item.done { border-left-color: #00ff88; opacity: 0.7; }
+        .task-item.active { border-left-color: #00d4ff; }
+        .task-item.pending { border-left-color: #ff6b6b; }
+        
+        .expand-hint {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 8px;
+        }
         
         .summary-bar {
             background: rgba(255,255,255,0.08);
@@ -159,9 +173,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .summary-stat {
-            text-align: center;
-        }
+        .summary-stat { text-align: center; }
         
         .summary-value {
             font-size: 2.5rem;
@@ -172,10 +184,7 @@
             background-clip: text;
         }
         
-        .summary-label {
-            font-size: 0.9rem;
-            color: #888;
-        }
+        .summary-label { font-size: 0.9rem; color: #888; }
         
         footer {
             text-align: center;
@@ -185,25 +194,19 @@
             font-size: 0.85rem;
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Thursday, February 26, 2026 — 10:12 PM PST</p>
+            <p class="last-updated">Last Updated: Thursday, February 26, 2026 — 10:17 PM PST</p>
         </header>
         
         <div class="agents-grid">
-            <!-- Maria - Main Assistant -->
+            <!-- Maria -->
             <div class="agent-card">
                 <div class="agent-header">
                     <span class="agent-emoji">🌸</span>
@@ -214,19 +217,45 @@
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
-                    <div class="stat completed">
+                    <div class="stat completed" onclick="toggleTasks(this, 'maria-done')">
                         <div class="stat-value">10</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress">
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'maria-active')">
                         <div class="stat-value">3</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining">
+                    <div class="stat remaining" onclick="toggleTasks(this, 'maria-pending')">
                         <div class="stat-value">3</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
+                <div class="task-list" id="maria-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Set up WhatsApp connection</div>
+                    <div class="task-item done">Created agent team (Ethel, Betty, Felix, Josh)</div>
+                    <div class="task-item done">Built Agent Command Center dashboard</div>
+                    <div class="task-item done">Set up email monitoring (Betty)</div>
+                    <div class="task-item done">Organized workspace (Felix)</div>
+                    <div class="task-item done">Created Team Directory</div>
+                    <div class="task-item done">Created Abuja Trip Google Sheet</div>
+                    <div class="task-item done">Set up cron jobs</div>
+                    <div class="task-item done">Merged Career Manager into Ethel</div>
+                    <div class="task-item done">Configured agent routing</div>
+                </div>
+                <div class="task-list" id="maria-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Support Erica with daily requests</div>
+                    <div class="task-item active">Coordinate agent team</div>
+                    <div class="task-item active">Monitor and improve systems</div>
+                </div>
+                <div class="task-list" id="maria-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Set up Google auth (gog CLI)</div>
+                    <div class="task-item pending">Automate CDI Project Board updates</div>
+                    <div class="task-item pending">Fix cdi-global.org SSL (www)</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
             <!-- CDI Agent -->
@@ -240,19 +269,212 @@
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
-                    <div class="stat completed">
+                    <div class="stat completed" onclick="toggleTasks(this, 'cdi-done')">
                         <div class="stat-value">14</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress">
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'cdi-active')">
                         <div class="stat-value">6</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining">
+                    <div class="stat remaining" onclick="toggleTasks(this, 'cdi-pending')">
                         <div class="stat-value">10</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
+                <div class="task-list" id="cdi-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Michigan Nonprofit filed (EIN: 41-4211056)</div>
+                    <div class="task-item done">Partnership Pitch Deck created</div>
+                    <div class="task-item done">CDI × Illumin8 MOU sent</div>
+                    <div class="task-item done">Timothy Walker confirmed as Audio Lead</div>
+                    <div class="task-item done">Partnership Database (40+ contacts)</div>
+                </div>
+                <div class="task-list" id="cdi-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Submit Form 1023-EZ ($275)</div>
+                    <div class="task-item active">NAMM Grant application</div>
+                    <div class="task-item active">Ghana CLG registration</div>
+                </div>
+                <div class="task-list" id="cdi-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Get Blake Brady signatures</div>
+                    <div class="task-item pending">Container shipping to Ghana</div>
+                    <div class="task-item pending">Official email setup</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Ethel -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">🌍</span>
+                    <div>
+                        <div class="agent-name">Ethel</div>
+                        <div class="agent-role">Travel Planner & Career Manager</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'ethel-done')">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'ethel-active')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'ethel-pending')">
+                        <div class="stat-value">7</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="ethel-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Hotel research (Fraser Suites)</div>
+                    <div class="task-item done">Nanny research (Krede Agency)</div>
+                    <div class="task-item done">Ground transport (Prosseg)</div>
+                    <div class="task-item done">EricaDHayes.com audit</div>
+                    <div class="task-item done">EndangeredLX.com audit</div>
+                </div>
+                <div class="task-list" id="ethel-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Color-code Google Sheet</div>
+                    <div class="task-item active">Book family flights (Ethiopian Air)</div>
+                    <div class="task-item active">Abuja trip coordination</div>
+                </div>
+                <div class="task-list" id="ethel-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Complete visa support form</div>
+                    <div class="task-item pending">Book Fraser Suites</div>
+                    <div class="task-item pending">Arrange nanny (Apr 29-May 1)</div>
+                    <div class="task-item pending">Update EndangeredLX.com</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Betty -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">📧</span>
+                    <div>
+                        <div class="agent-name">Betty</div>
+                        <div class="agent-role">Office Secretary • 35 Years • Deep South 🍑</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'betty-done')">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'betty-active')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'betty-pending')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="betty-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Initial inbox scan (20 emails triaged)</div>
+                </div>
+                <div class="task-list" id="betty-active">
+                    <h4>🔄 Active (Cron Job)</h4>
+                    <div class="task-item active">Monitor mariaperkinscdi@gmail.com</div>
+                    <div class="task-item active">Triage & route tasks</div>
+                    <div class="task-item active">Keep Team Directory updated</div>
+                    <div class="task-item active">Check in with Josh</div>
+                </div>
+                <div class="task-list" id="betty-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">None right now, sugar!</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Josh -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">📊</span>
+                    <div>
+                        <div class="agent-name">Josh</div>
+                        <div class="agent-role">Dashboard Manager • Auto-updates 5 min</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'josh-done')">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'josh-active')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'josh-pending')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="josh-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Continuous dashboard updates</div>
+                </div>
+                <div class="task-list" id="josh-active">
+                    <h4>🔄 Active (Cron Job)</h4>
+                    <div class="task-item active">Check all agents every 5 min</div>
+                    <div class="task-item active">Update dashboard with fresh data</div>
+                    <div class="task-item active">Push to GitHub automatically</div>
+                </div>
+                <div class="task-list" id="josh-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">None - always running!</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Felix -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">🗂️</span>
+                    <div>
+                        <div class="agent-name">Felix</div>
+                        <div class="agent-role">File Organizer & System Admin</div>
+                    </div>
+                </div>
+                <span class="status-badge status-idle">On-Demand</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'felix-done')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'felix-active')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'felix-pending')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="felix-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Cleaned 64 screenshots from Desktop</div>
+                    <div class="task-item done">Organized workspace folders</div>
+                    <div class="task-item done">Created STRUCTURE.md</div>
+                </div>
+                <div class="task-list" id="felix-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Waiting for next task...</div>
+                </div>
+                <div class="task-list" id="felix-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">None - call me when needed!</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
             <!-- Sage Manager -->
@@ -264,47 +486,37 @@
                         <div class="agent-role">Nineteen Sage Artist Management</div>
                     </div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
+                <span class="status-badge status-idle">Idle</span>
                 <div class="task-stats">
-                    <div class="stat completed">
-                        <div class="stat-value">6</div>
+                    <div class="stat completed" onclick="toggleTasks(this, 'sage-done')">
+                        <div class="stat-value">2</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">3</div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'sage-active')">
+                        <div class="stat-value">0</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining">
-                        <div class="stat-value">8</div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'sage-pending')">
+                        <div class="stat-value">3</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Ethel - Travel Planner & Career Manager -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">🌍</span>
-                    <div>
-                        <div class="agent-name">Ethel</div>
-                        <div class="agent-role">Travel Planner & Career Manager</div>
-                    </div>
+                <div class="task-list" id="sage-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Initial workspace research</div>
+                    <div class="task-item done">Saved Audiomack & Instagram</div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
-                <div class="task-stats">
-                    <div class="stat completed">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining">
-                        <div class="stat-value">7</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
+                <div class="task-list" id="sage-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">None currently</div>
                 </div>
+                <div class="task-list" id="sage-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Get discography details</div>
+                    <div class="task-item pending">Track upcoming releases</div>
+                    <div class="task-item pending">Build promotion strategy</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
             <!-- CBU Assistant -->
@@ -318,97 +530,34 @@
                 </div>
                 <span class="status-badge status-idle">Idle</span>
                 <div class="task-stats">
-                    <div class="stat completed">
+                    <div class="stat completed" onclick="toggleTasks(this, 'cbu-done')">
                         <div class="stat-value">0</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">1</div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'cbu-active')">
+                        <div class="stat-value">0</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining">
+                    <div class="stat remaining" onclick="toggleTasks(this, 'cbu-pending')">
                         <div class="stat-value">3</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Betty - Office Secretary -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">📧</span>
-                    <div>
-                        <div class="agent-name">Betty</div>
-                        <div class="agent-role">Office Secretary • 35 Years • Deep South 🍑</div>
-                    </div>
+                <div class="task-list" id="cbu-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">None yet</div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
-                <div class="task-stats">
-                    <div class="stat completed">
-                        <div class="stat-value">1</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">4</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
+                <div class="task-list" id="cbu-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">None currently</div>
                 </div>
-            </div>
-            
-            <!-- Josh - Dashboard Manager -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">📊</span>
-                    <div>
-                        <div class="agent-name">Josh</div>
-                        <div class="agent-role">Dashboard Manager • Auto-updates 5 min</div>
-                    </div>
+                <div class="task-list" id="cbu-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Get course schedule</div>
+                    <div class="task-item pending">Obtain syllabus</div>
+                    <div class="task-item pending">Identify semester details</div>
                 </div>
-                <span class="status-badge status-active pulse">Active</span>
-                <div class="task-stats">
-                    <div class="stat completed">
-                        <div class="stat-value">∞</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Felix - File Organizer -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">🗂️</span>
-                    <div>
-                        <div class="agent-name">Felix</div>
-                        <div class="agent-role">File Organizer & System Admin</div>
-                    </div>
-                </div>
-                <span class="status-badge status-idle">On-Demand</span>
-                <div class="task-stats">
-                    <div class="stat completed">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
-                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
         </div>
         
@@ -418,19 +567,19 @@
                 <div class="summary-label">Total Agents</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">6</div>
+                <div class="summary-value">5</div>
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">29</div>
+                <div class="summary-value">35</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">20</div>
+                <div class="summary-value">13</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">28</div>
+                <div class="summary-value">16</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
@@ -440,5 +589,23 @@
             <p>endangeredlx.github.io/agent-dashboard</p>
         </footer>
     </div>
+    
+    <script>
+        function toggleTasks(element, taskListId) {
+            // Close all other task lists in this card
+            const card = element.closest('.agent-card');
+            const allLists = card.querySelectorAll('.task-list');
+            const targetList = document.getElementById(taskListId);
+            
+            allLists.forEach(list => {
+                if (list.id !== taskListId) {
+                    list.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle the clicked one
+            targetList.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
