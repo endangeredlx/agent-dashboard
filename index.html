@@ -196,6 +196,35 @@
         
         .pulse { animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        .earnings-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 200, 100, 0.25) 100%);
+            border: 2px solid rgba(0, 255, 136, 0.5);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+        
+        .earnings-icon { font-size: 1.5rem; }
+        
+        .earnings-amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .earnings-label {
+            font-size: 0.75rem;
+            color: #88ffbb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -664,6 +693,13 @@
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
+                <div class="earnings-badge">
+                    <span class="earnings-icon">💰</span>
+                    <div>
+                        <div class="earnings-amount">$0.00</div>
+                        <div class="earnings-label">Total Earned</div>
+                    </div>
+                </div>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'mike-done')">
                         <div class="stat-value">0</div>
