@@ -202,7 +202,7 @@
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Thursday, February 27, 2026 — 9:45 AM PST</p>
+            <p class="last-updated">Last Updated: Thursday, February 27, 2026 — 10:15 AM PST</p>
         </header>
         
         <div class="agents-grid">
@@ -211,8 +211,8 @@
                 <div class="agent-header">
                     <span class="agent-emoji">🌸</span>
                     <div>
-                        <div class="agent-name">Maria Perkins</div>
-                        <div class="agent-role">Executive Assistant & Team Lead</div>
+                        <div class="agent-name">Maria</div>
+                        <div class="agent-role">Team Lead • Executive Assistant</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
@@ -233,14 +233,13 @@
                 <div class="task-list" id="maria-done">
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Set up WhatsApp connection</div>
-                    <div class="task-item done">Created agent team (Ethel, Betty, Felix, Josh)</div>
+                    <div class="task-item done">Created agent team (Betty, Ethel, Felix, Josh)</div>
                     <div class="task-item done">Built Agent Command Center dashboard</div>
                     <div class="task-item done">Set up email monitoring (Betty)</div>
                     <div class="task-item done">Organized workspace (Felix)</div>
                     <div class="task-item done">Created Team Directory</div>
                     <div class="task-item done">Created Abuja Trip Google Sheet</div>
-                    <div class="task-item done">Set up cron jobs</div>
-                    <div class="task-item done">Merged Career Manager into Ethel</div>
+                    <div class="task-item done">Set up cron jobs for agents</div>
                     <div class="task-item done">Configured agent routing</div>
                     <div class="task-item done">Asana API configured</div>
                     <div class="task-item done">Created BBB project in Asana</div>
@@ -248,6 +247,7 @@
                     <div class="task-item done">Set up daily Asana sync cron</div>
                     <div class="task-item done">Analyzed desktop folders (BBB, CBU, EPF)</div>
                     <div class="task-item done">Strategic insights documented</div>
+                    <div class="task-item done">Expanded team to 9 agents</div>
                 </div>
                 <div class="task-list" id="maria-active">
                     <h4>🔄 Active</h4>
@@ -263,129 +263,19 @@
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
-            <!-- CDI Agent -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">🎚️</span>
-                    <div>
-                        <div class="agent-name">CDI Agent</div>
-                        <div class="agent-role">Nonprofit Operations & NAMM Grant</div>
-                    </div>
-                </div>
-                <span class="status-badge status-active pulse">Active</span>
-                <div class="task-stats">
-                    <div class="stat completed" onclick="toggleTasks(this, 'cdi-done')">
-                        <div class="stat-value">14</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress" onclick="toggleTasks(this, 'cdi-active')">
-                        <div class="stat-value">6</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining" onclick="toggleTasks(this, 'cdi-pending')">
-                        <div class="stat-value">10</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
-                </div>
-                <div class="task-list" id="cdi-done">
-                    <h4>✅ Completed</h4>
-                    <div class="task-item done">Michigan Nonprofit filed (EIN: 41-4211056)</div>
-                    <div class="task-item done">Partnership Pitch Deck created</div>
-                    <div class="task-item done">CDI × Illumin8 MOU sent</div>
-                    <div class="task-item done">Timothy Walker confirmed as Audio Lead</div>
-                    <div class="task-item done">Partnership Database (40+ contacts)</div>
-                    <div class="task-item done">Full operational pipeline documented</div>
-                    <div class="task-item done">Repository analysis completed</div>
-                    <div class="task-item done">AI agent opportunities mapped</div>
-                </div>
-                <div class="task-list" id="cdi-active">
-                    <h4>🔄 Active</h4>
-                    <div class="task-item active">Submit Form 1023-EZ ($275)</div>
-                    <div class="task-item active">NAMM Grant application</div>
-                    <div class="task-item active">Ghana CLG registration</div>
-                    <div class="task-item active">Partnership outreach automation</div>
-                    <div class="task-item active">Website updates</div>
-                    <div class="task-item active">501(c)(3) documentation support</div>
-                </div>
-                <div class="task-list" id="cdi-pending">
-                    <h4>📋 Pending</h4>
-                    <div class="task-item pending">Get Blake Brady signatures</div>
-                    <div class="task-item pending">Container shipping to Ghana</div>
-                    <div class="task-item pending">Official email setup</div>
-                    <div class="task-item pending">Recruitment system build</div>
-                    <div class="task-item pending">Curriculum formatting</div>
-                    <div class="task-item pending">Deployment playbook</div>
-                </div>
-                <div class="expand-hint">👆 Tap numbers to see tasks</div>
-            </div>
-            
-            <!-- Ethel -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-emoji">🌍</span>
-                    <div>
-                        <div class="agent-name">Ethel</div>
-                        <div class="agent-role">Travel Planner & Career Manager</div>
-                    </div>
-                </div>
-                <span class="status-badge status-active pulse">Active</span>
-                <div class="task-stats">
-                    <div class="stat completed" onclick="toggleTasks(this, 'ethel-done')">
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Done</div>
-                    </div>
-                    <div class="stat in-progress" onclick="toggleTasks(this, 'ethel-active')">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat remaining" onclick="toggleTasks(this, 'ethel-pending')">
-                        <div class="stat-value">7</div>
-                        <div class="stat-label">Pending</div>
-                    </div>
-                </div>
-                <div class="task-list" id="ethel-done">
-                    <h4>✅ Completed</h4>
-                    <div class="task-item done">Hotel research (Fraser Suites)</div>
-                    <div class="task-item done">Nanny research (Krede Agency)</div>
-                    <div class="task-item done">Ground transport (Prosseg)</div>
-                    <div class="task-item done">EricaDHayes.com audit</div>
-                    <div class="task-item done">EndangeredLX.com audit</div>
-                    <div class="task-item done">Portfolio & online presence documented</div>
-                    <div class="task-item done">Demo reels catalogued (2023, 2025)</div>
-                    <div class="task-item done">Client roster documented</div>
-                </div>
-                <div class="task-list" id="ethel-active">
-                    <h4>🔄 Active</h4>
-                    <div class="task-item active">Color-code Google Sheet</div>
-                    <div class="task-item active">Book family flights (Ethiopian Air)</div>
-                    <div class="task-item active">Abuja trip coordination</div>
-                    <div class="task-item active">Track current/upcoming gig schedule</div>
-                    <div class="task-item active">Monitor press/media mentions</div>
-                </div>
-                <div class="task-list" id="ethel-pending">
-                    <h4>📋 Pending</h4>
-                    <div class="task-item pending">Complete visa support form</div>
-                    <div class="task-item pending">Book Fraser Suites</div>
-                    <div class="task-item pending">Arrange nanny (Apr 29-May 1)</div>
-                    <div class="task-item pending">Update EndangeredLX.com</div>
-                    <div class="task-item pending">Identify career growth opportunities</div>
-                </div>
-                <div class="expand-hint">👆 Tap numbers to see tasks</div>
-            </div>
-            
             <!-- Betty -->
             <div class="agent-card">
                 <div class="agent-header">
                     <span class="agent-emoji">📧</span>
                     <div>
                         <div class="agent-name">Betty</div>
-                        <div class="agent-role">Office Secretary • 35 Years • Deep South 🍑</div>
+                        <div class="agent-role">Email & Calendar • Office Secretary 🍑</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'betty-done')">
-                        <div class="stat-value">1</div>
+                        <div class="stat-value">2</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'betty-active')">
@@ -400,17 +290,65 @@
                 <div class="task-list" id="betty-done">
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Initial inbox scan (20 emails triaged)</div>
+                    <div class="task-item done">Calendar feeds configured (MUS396, Endangered LX)</div>
                 </div>
                 <div class="task-list" id="betty-active">
-                    <h4>🔄 Active (Cron Job)</h4>
+                    <h4>🔄 Active (Cron: Every 30 min)</h4>
                     <div class="task-item active">Monitor mariaperkinscdi@gmail.com</div>
-                    <div class="task-item active">Triage & route tasks</div>
+                    <div class="task-item active">Triage & route tasks to team</div>
                     <div class="task-item active">Keep Team Directory updated</div>
-                    <div class="task-item active">Check in with Josh</div>
+                    <div class="task-item active">Check in with Josh for dashboard</div>
                 </div>
                 <div class="task-list" id="betty-pending">
                     <h4>📋 Pending</h4>
                     <div class="task-item pending">None right now, sugar!</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Ethel -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">✈️</span>
+                    <div>
+                        <div class="agent-name">Ethel</div>
+                        <div class="agent-role">Travel & Logistics Coordinator</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'ethel-done')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'ethel-active')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'ethel-pending')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="ethel-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Abuja hotel research (Fraser Suites)</div>
+                    <div class="task-item done">Nanny research (Krede Agency)</div>
+                    <div class="task-item done">Ground transport (Prosseg)</div>
+                    <div class="task-item done">Created trip manifest templates</div>
+                </div>
+                <div class="task-list" id="ethel-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">🎸 Terranea gig - Mar 9 (Rancho Palos Verdes)</div>
+                    <div class="task-item active">🌴 Boca Raton trip - Apr 6</div>
+                    <div class="task-item active">Color-code Abuja Google Sheet</div>
+                </div>
+                <div class="task-list" id="ethel-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Complete visa support form</div>
+                    <div class="task-item pending">Book Fraser Suites (Abuja)</div>
+                    <div class="task-item pending">Arrange nanny (Apr 29-May 1)</div>
+                    <div class="task-item pending">Book family flights (Ethiopian Air)</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -421,7 +359,7 @@
                     <span class="agent-emoji">📊</span>
                     <div>
                         <div class="agent-name">Josh</div>
-                        <div class="agent-role">Dashboard Manager • Auto-updates every 1 hour</div>
+                        <div class="agent-role">Dashboard Manager • Auto-updates hourly</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
@@ -442,10 +380,11 @@
                 <div class="task-list" id="josh-done">
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Continuous dashboard updates</div>
+                    <div class="task-item done">Updated all agent names (Feb 27)</div>
                 </div>
                 <div class="task-list" id="josh-active">
-                    <h4>🔄 Active (Cron Job)</h4>
-                    <div class="task-item active">Check all agents every 5 min</div>
+                    <h4>🔄 Active (Cron: Every hour)</h4>
+                    <div class="task-item active">Check all 9 agents via MEMORY.md</div>
                     <div class="task-item active">Update dashboard with fresh data</div>
                     <div class="task-item active">Push to GitHub automatically</div>
                 </div>
@@ -459,10 +398,10 @@
             <!-- Felix -->
             <div class="agent-card">
                 <div class="agent-header">
-                    <span class="agent-emoji">🗂️</span>
+                    <span class="agent-emoji">📁</span>
                     <div>
                         <div class="agent-name">Felix</div>
-                        <div class="agent-role">File Organizer & System Admin</div>
+                        <div class="agent-role">File Org & Cleanup • System Admin</div>
                     </div>
                 </div>
                 <span class="status-badge status-idle">On-Demand</span>
@@ -472,7 +411,7 @@
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'felix-active')">
-                        <div class="stat-value">0</div>
+                        <div class="stat-value">1</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'felix-pending')">
@@ -488,7 +427,7 @@
                 </div>
                 <div class="task-list" id="felix-active">
                     <h4>🔄 Active</h4>
-                    <div class="task-item active">Waiting for next task...</div>
+                    <div class="task-item active">Maintaining inbox system for agents</div>
                 </div>
                 <div class="task-list" id="felix-pending">
                     <h4>📋 Pending</h4>
@@ -497,31 +436,31 @@
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
-            <!-- Sage Manager -->
+            <!-- Kofi -->
             <div class="agent-card">
                 <div class="agent-header">
                     <span class="agent-emoji">🎵</span>
                     <div>
-                        <div class="agent-name">Sage Manager</div>
-                        <div class="agent-role">Nineteen Sage Artist Management</div>
+                        <div class="agent-name">Kofi</div>
+                        <div class="agent-role">Nineteen Sage Manager • Artist Mgmt</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
-                    <div class="stat completed" onclick="toggleTasks(this, 'sage-done')">
+                    <div class="stat completed" onclick="toggleTasks(this, 'kofi-done')">
                         <div class="stat-value">6</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress" onclick="toggleTasks(this, 'sage-active')">
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'kofi-active')">
                         <div class="stat-value">3</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining" onclick="toggleTasks(this, 'sage-pending')">
+                    <div class="stat remaining" onclick="toggleTasks(this, 'kofi-pending')">
                         <div class="stat-value">8</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
-                <div class="task-list" id="sage-done">
+                <div class="task-list" id="kofi-done">
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Found Audiomack profile (biggsage19)</div>
                     <div class="task-item done">Confirmed Instagram (@nineteensage)</div>
@@ -530,13 +469,13 @@
                     <div class="task-item done">Confirmed genre: Hip-Hop/Trap</div>
                     <div class="task-item done">Confirmed location: Accra, Ghana</div>
                 </div>
-                <div class="task-list" id="sage-active">
+                <div class="task-list" id="kofi-active">
                     <h4>🔄 Active</h4>
                     <div class="task-item active">Research Spotify/Apple Music profiles</div>
                     <div class="task-item active">Find additional streaming platforms</div>
                     <div class="task-item active">Document collaborator network</div>
                 </div>
-                <div class="task-list" id="sage-pending">
+                <div class="task-list" id="kofi-pending">
                     <h4>📋 Pending</h4>
                     <div class="task-item pending">Get full discography</div>
                     <div class="task-item pending">Find Twitter/X & TikTok</div>
@@ -550,31 +489,97 @@
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
             
-            <!-- CBU Assistant -->
+            <!-- Kojo -->
             <div class="agent-card">
                 <div class="agent-header">
-                    <span class="agent-emoji">📚</span>
+                    <span class="agent-emoji">🎚️</span>
                     <div>
-                        <div class="agent-name">CBU Assistant</div>
-                        <div class="agent-role">MUS396 Lighting Techniques • Spring 2026</div>
+                        <div class="agent-name">Kojo</div>
+                        <div class="agent-role">CDI Operations • Nonprofit & NAMM</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
-                    <div class="stat completed" onclick="toggleTasks(this, 'cbu-done')">
+                    <div class="stat completed" onclick="toggleTasks(this, 'kojo-done')">
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'kojo-active')">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'kojo-pending')">
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="kojo-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Michigan Nonprofit filed (EIN: 41-4211056)</div>
+                    <div class="task-item done">Partnership Pitch Deck created</div>
+                    <div class="task-item done">CDI × Illumin8 MOU sent</div>
+                    <div class="task-item done">Timothy Walker confirmed as Audio Lead</div>
+                    <div class="task-item done">Partnership Database (40+ contacts)</div>
+                    <div class="task-item done">Full operational pipeline documented</div>
+                    <div class="task-item done">Repository analysis completed</div>
+                    <div class="task-item done">AI agent opportunities mapped</div>
+                    <div class="task-item done">Quarterly cycle defined (Q1-Q4)</div>
+                    <div class="task-item done">Team structure documented</div>
+                    <div class="task-item done">Budget breakdown ($150-160K/quarter)</div>
+                    <div class="task-item done">Sustainability roadmap (4-year plan)</div>
+                    <div class="task-item done">Training curriculum mapped</div>
+                    <div class="task-item done">2026 roadmap finalized</div>
+                </div>
+                <div class="task-list" id="kojo-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Submit Form 1023-EZ ($275)</div>
+                    <div class="task-item active">NAMM Grant application</div>
+                    <div class="task-item active">Ghana CLG registration</div>
+                    <div class="task-item active">Partnership outreach automation</div>
+                    <div class="task-item active">Website updates (cdi-global.org)</div>
+                    <div class="task-item active">501(c)(3) documentation support</div>
+                </div>
+                <div class="task-list" id="kojo-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Get Blake Brady signatures</div>
+                    <div class="task-item pending">Container shipping to Ghana</div>
+                    <div class="task-item pending">Official email setup</div>
+                    <div class="task-item pending">Recruitment system build</div>
+                    <div class="task-item pending">Curriculum formatting</div>
+                    <div class="task-item pending">Deployment playbook</div>
+                    <div class="task-item pending">Crew registry database</div>
+                    <div class="task-item pending">Alumni network platform</div>
+                    <div class="task-item pending">Lagos/Nairobi expansion research</div>
+                    <div class="task-item pending">Train-the-trainer program</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Lisa -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">📚</span>
+                    <div>
+                        <div class="agent-name">Lisa</div>
+                        <div class="agent-role">CBU Course Assistant • MUS396 Spring 2026</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'lisa-done')">
                         <div class="stat-value">5</div>
                         <div class="stat-label">Done</div>
                     </div>
-                    <div class="stat in-progress" onclick="toggleTasks(this, 'cbu-active')">
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'lisa-active')">
                         <div class="stat-value">3</div>
                         <div class="stat-label">Active</div>
                     </div>
-                    <div class="stat remaining" onclick="toggleTasks(this, 'cbu-pending')">
+                    <div class="stat remaining" onclick="toggleTasks(this, 'lisa-pending')">
                         <div class="stat-value">4</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
-                <div class="task-list" id="cbu-done">
+                <div class="task-list" id="lisa-done">
                     <h4>✅ Completed</h4>
                     <div class="task-item done">Studied full syllabus (MUS396)</div>
                     <div class="task-item done">Read "Designing with Light" (Gillette)</div>
@@ -582,18 +587,69 @@
                     <div class="task-item done">Mapped CBU folder structure (15+ subfolders)</div>
                     <div class="task-item done">Identified 10 students from assignments</div>
                 </div>
-                <div class="task-list" id="cbu-active">
+                <div class="task-list" id="lisa-active">
                     <h4>🔄 Active</h4>
-                    <div class="task-item active">Track Week 7 progress (Midterm done!)</div>
+                    <div class="task-item active">📅 Week 7 (Midterm week) - done!</div>
                     <div class="task-item active">Support grading & student feedback</div>
                     <div class="task-item active">Monitor assignment deadlines</div>
                 </div>
-                <div class="task-list" id="cbu-pending">
+                <div class="task-list" id="lisa-pending">
                     <h4>📋 Pending</h4>
-                    <div class="task-item pending">Quiz 4 prep (Week 8)</div>
+                    <div class="task-item pending">Quiz 4 prep (Week 8 - Mar 4)</div>
                     <div class="task-item pending">Lighting Plot Project support</div>
                     <div class="task-item pending">MA3 Palette Project prep</div>
                     <div class="task-item pending">Final exam coordination (Apr 21-25)</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
+            
+            <!-- Vivian -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">💡</span>
+                    <div>
+                        <div class="agent-name">Vivian</div>
+                        <div class="agent-role">Career Manager • Erica D. Hayes Brand</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'vivian-done')">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'vivian-active')">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'vivian-pending')">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="vivian-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">EricaDHayes.com full audit</div>
+                    <div class="task-item done">EndangeredLX.com full audit</div>
+                    <div class="task-item done">Portfolio & online presence documented</div>
+                    <div class="task-item done">Demo reels catalogued (2023, 2025)</div>
+                    <div class="task-item done">Client roster documented (58+ clients)</div>
+                    <div class="task-item done">Business model insights documented</div>
+                    <div class="task-item done">Career timeline mapped (2007-present)</div>
+                    <div class="task-item done">Social media links verified</div>
+                </div>
+                <div class="task-list" id="vivian-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Track current/upcoming gig schedule</div>
+                    <div class="task-item active">Monitor press/media mentions</div>
+                    <div class="task-item active">Identify growth opportunities</div>
+                </div>
+                <div class="task-list" id="vivian-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">Update EndangeredLX.com (add social links)</div>
+                    <div class="task-item pending">Fix team gallery ("No items found")</div>
+                    <div class="task-item pending">Add client logo carousel</div>
+                    <div class="task-item pending">Add testimonials section</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -601,29 +657,29 @@
         
         <div class="summary-bar">
             <div class="summary-stat">
-                <div class="summary-value">8</div>
+                <div class="summary-value">9</div>
                 <div class="summary-label">Total Agents</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">7</div>
+                <div class="summary-value">8</div>
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">53</div>
+                <div class="summary-value">58</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">27</div>
+                <div class="summary-value">29</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">31</div>
+                <div class="summary-value">32</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
         
         <footer>
-            <p>📊 Dashboard Manager: Josh | Updates every 5 minutes</p>
+            <p>📊 Dashboard Manager: Josh | Updates every hour</p>
             <p>endangeredlx.github.io/agent-dashboard</p>
         </footer>
     </div>
