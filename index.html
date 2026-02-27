@@ -202,7 +202,7 @@
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Friday, February 27, 2026 — 1:15 AM PST</p>
+            <p class="last-updated">Last Updated: Friday, February 27, 2026 — 8:23 AM PST</p>
         </header>
         
         <div class="agents-grid">
@@ -218,7 +218,7 @@
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'maria-done')">
-                        <div class="stat-value">10</div>
+                        <div class="stat-value">16</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'maria-active')">
@@ -226,7 +226,7 @@
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'maria-pending')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">2</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -242,6 +242,12 @@
                     <div class="task-item done">Set up cron jobs</div>
                     <div class="task-item done">Merged Career Manager into Ethel</div>
                     <div class="task-item done">Configured agent routing</div>
+                    <div class="task-item done">Asana API configured</div>
+                    <div class="task-item done">Created BBB project in Asana</div>
+                    <div class="task-item done">Added tasks for BBB, EPF, CDI, CBU</div>
+                    <div class="task-item done">Set up daily Asana sync cron</div>
+                    <div class="task-item done">Analyzed desktop folders (BBB, CBU, EPF)</div>
+                    <div class="task-item done">Strategic insights documented</div>
                 </div>
                 <div class="task-list" id="maria-active">
                     <h4>🔄 Active</h4>
@@ -252,7 +258,6 @@
                 <div class="task-list" id="maria-pending">
                     <h4>📋 Pending</h4>
                     <div class="task-item pending">Set up Google auth (gog CLI)</div>
-                    <div class="task-item pending">Automate CDI Project Board updates</div>
                     <div class="task-item pending">Fix cdi-global.org SSL (www)</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
@@ -289,18 +294,27 @@
                     <div class="task-item done">CDI × Illumin8 MOU sent</div>
                     <div class="task-item done">Timothy Walker confirmed as Audio Lead</div>
                     <div class="task-item done">Partnership Database (40+ contacts)</div>
+                    <div class="task-item done">Full operational pipeline documented</div>
+                    <div class="task-item done">Repository analysis completed</div>
+                    <div class="task-item done">AI agent opportunities mapped</div>
                 </div>
                 <div class="task-list" id="cdi-active">
                     <h4>🔄 Active</h4>
                     <div class="task-item active">Submit Form 1023-EZ ($275)</div>
                     <div class="task-item active">NAMM Grant application</div>
                     <div class="task-item active">Ghana CLG registration</div>
+                    <div class="task-item active">Partnership outreach automation</div>
+                    <div class="task-item active">Website updates</div>
+                    <div class="task-item active">501(c)(3) documentation support</div>
                 </div>
                 <div class="task-list" id="cdi-pending">
                     <h4>📋 Pending</h4>
                     <div class="task-item pending">Get Blake Brady signatures</div>
                     <div class="task-item pending">Container shipping to Ghana</div>
                     <div class="task-item pending">Official email setup</div>
+                    <div class="task-item pending">Recruitment system build</div>
+                    <div class="task-item pending">Curriculum formatting</div>
+                    <div class="task-item pending">Deployment playbook</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -317,11 +331,11 @@
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'ethel-done')">
-                        <div class="stat-value">5</div>
+                        <div class="stat-value">8</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'ethel-active')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'ethel-pending')">
@@ -336,12 +350,17 @@
                     <div class="task-item done">Ground transport (Prosseg)</div>
                     <div class="task-item done">EricaDHayes.com audit</div>
                     <div class="task-item done">EndangeredLX.com audit</div>
+                    <div class="task-item done">Portfolio & online presence documented</div>
+                    <div class="task-item done">Demo reels catalogued (2023, 2025)</div>
+                    <div class="task-item done">Client roster documented</div>
                 </div>
                 <div class="task-list" id="ethel-active">
                     <h4>🔄 Active</h4>
                     <div class="task-item active">Color-code Google Sheet</div>
                     <div class="task-item active">Book family flights (Ethiopian Air)</div>
                     <div class="task-item active">Abuja trip coordination</div>
+                    <div class="task-item active">Track current/upcoming gig schedule</div>
+                    <div class="task-item active">Monitor press/media mentions</div>
                 </div>
                 <div class="task-list" id="ethel-pending">
                     <h4>📋 Pending</h4>
@@ -349,6 +368,7 @@
                     <div class="task-item pending">Book Fraser Suites</div>
                     <div class="task-item pending">Arrange nanny (Apr 29-May 1)</div>
                     <div class="task-item pending">Update EndangeredLX.com</div>
+                    <div class="task-item pending">Identify career growth opportunities</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -582,15 +602,15 @@
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">39</div>
+                <div class="summary-value">48</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">23</div>
+                <div class="summary-value">25</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">31</div>
+                <div class="summary-value">30</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
