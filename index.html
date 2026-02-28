@@ -922,19 +922,58 @@
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
+            
+            <!-- Diane -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-emoji">🎨</span>
+                    <div>
+                        <div class="agent-name">Diane</div>
+                        <div class="agent-role">Graphic Designer • Visual Assets</div>
+                    </div>
+                </div>
+                <span class="status-badge status-active pulse">Active</span>
+                <div class="task-stats">
+                    <div class="stat completed" onclick="toggleTasks(this, 'diane-done')">
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Done</div>
+                    </div>
+                    <div class="stat in-progress" onclick="toggleTasks(this, 'diane-active')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat remaining" onclick="toggleTasks(this, 'diane-pending')">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="task-list" id="diane-done">
+                    <h4>✅ Completed</h4>
+                    <div class="task-item done">Hotel Outreach CRM redesign ✨</div>
+                </div>
+                <div class="task-list" id="diane-active">
+                    <h4>🔄 Active</h4>
+                    <div class="task-item active">Awaiting next design task</div>
+                </div>
+                <div class="task-list" id="diane-pending">
+                    <h4>📋 Pending</h4>
+                    <div class="task-item pending">None yet - just joined!</div>
+                </div>
+                <div class="expand-hint">👆 Tap numbers to see tasks</div>
+            </div>
         </div>
         
         <div class="summary-bar">
             <div class="summary-stat">
-                <div class="summary-value">12</div>
+                <div class="summary-value">15</div>
                 <div class="summary-label">Total Agents</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">11</div>
+                <div class="summary-value">12</div>
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">91</div>
+                <div class="summary-value">92</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
