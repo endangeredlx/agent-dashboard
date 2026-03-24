@@ -281,7 +281,7 @@
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Tuesday, March 24, 2026 — 11:14 AM PST</p>
+            <p class="last-updated">Last Updated: Monday, March 24, 2026 — 12:15 PM PST</p>
         </header>
         
         <!-- THIS WEEKEND Banner -->
@@ -555,7 +555,7 @@
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'ethel-done')">
-                        <div class="stat-value">4</div>
+                        <div class="stat-value">6</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'ethel-active')">
@@ -569,23 +569,25 @@
                 </div>
                 <div class="task-list" id="ethel-done">
                     <h4>✅ Completed</h4>
-                    <div class="task-item done">Abuja hotel research (Fraser Suites)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">✈️ GAWSC Abuja flights confirmed (Apr 25-May 4)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">🚗 RHEZON driver booked (₦910,000 / 7 days)</div>
+                    <div class="task-item done">🏨 Raynez Resort selected (5-star, own room)</div>
                     <div class="task-item done">Nanny research (Krede Agency)</div>
-                    <div class="task-item done">Ground transport (Prosseg)</div>
                     <div class="task-item done">Created trip manifest templates</div>
+                    <div class="task-item done">🎸 Terranea gig completed (Mar 9)</div>
                 </div>
                 <div class="task-list" id="ethel-active">
                     <h4>🔄 Active</h4>
-                    <div class="task-item active">🎸 Terranea gig - Mar 9 (Rancho Palos Verdes)</div>
+                    <div class="task-item active priority">🏨 Book Raynez Resort (need GAWSC discount code)</div>
                     <div class="task-item active">🌴 Boca Raton trip - Apr 6</div>
-                    <div class="task-item active">Color-code Abuja Google Sheet</div>
+                    <div class="task-item active">📋 GAWSC manifest finalization</div>
                 </div>
                 <div class="task-list" id="ethel-pending">
                     <h4>📋 Pending</h4>
-                    <div class="task-item pending">Complete visa support form</div>
-                    <div class="task-item pending">Book Fraser Suites (Abuja)</div>
+                    <div class="task-item pending">Get GAWSC event discount code</div>
+                    <div class="task-item pending">Nigeria visa application</div>
                     <div class="task-item pending">Arrange nanny (Apr 29-May 1)</div>
-                    <div class="task-item pending">Book family flights (Ethiopian Air)</div>
+                    <div class="task-item pending">Yellow Fever cert ✅ already done</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -639,21 +641,21 @@
                     <span class="agent-emoji">📁</span>
                     <div>
                         <div class="agent-name">Felix</div>
-                        <div class="agent-role">File Org & Cleanup • System Admin</div>
+                        <div class="agent-role">File Org & Cleanup • Every 4 Hours</div>
                     </div>
                 </div>
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'felix-done')">
-                        <div class="stat-value">5</div>
+                        <div class="stat-value">7</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'felix-active')">
-                        <div class="stat-value">1</div>
+                        <div class="stat-value">3</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'felix-pending')">
-                        <div class="stat-value">0</div>
+                        <div class="stat-value">1</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -664,14 +666,18 @@
                     <div class="task-item done">Created STRUCTURE.md</div>
                     <div class="task-item done">Created ghana-right-of-abode folder</div>
                     <div class="task-item done">Organized RoA documents structure</div>
+                    <div class="task-item done">Set up inbox system for all agents</div>
+                    <div class="task-item done">Cleaned .DS_Store files from repos</div>
                 </div>
                 <div class="task-list" id="felix-active">
-                    <h4>🔄 Active</h4>
-                    <div class="task-item active">Maintaining inbox system for agents</div>
+                    <h4>🔄 Active (Cron: Every 4 hrs)</h4>
+                    <div class="task-item active">📊 Disk monitoring (49% / 107Gi free)</div>
+                    <div class="task-item active">📥 Inbox monitoring (13 stale items, 26 days)</div>
+                    <div class="task-item active">🗑️ Temp file cleanup (__pycache__, .DS_Store)</div>
                 </div>
                 <div class="task-list" id="felix-pending">
                     <h4>📋 Pending</h4>
-                    <div class="task-item pending">None - call me when needed!</div>
+                    <div class="task-item pending">⚠️ 5 agents have unprocessed inbox items</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -979,38 +985,51 @@
                         <div class="earnings-label" style="color: #ffecb3;">Lawsuits Filed (Mar 6)</div>
                     </div>
                 </div>
+                <div class="earnings-badge">
+                    <span class="earnings-icon">📡</span>
+                    <div>
+                        <div class="earnings-amount">$20-50</div>
+                        <div class="earnings-label">Est. Monthly Passive (4 apps running)</div>
+                    </div>
+                </div>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'mike-done')">
-                        <div class="stat-value">5</div>
+                        <div class="stat-value">9</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'mike-active')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">4</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'mike-pending')">
-                        <div class="stat-value">2</div>
+                        <div class="stat-value">3</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
                 <div class="task-list" id="mike-done">
                     <h4>✅ Completed</h4>
-                    <div class="task-item done">Researched Google Play settlement</div>
-                    <div class="task-item done">Researched Apple Siri settlement</div>
-                    <div class="task-item done">Installed Honeygain macOS app</div>
-                    <div class="task-item done">Installed Brave Browser</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">📡 EarnApp installed & running (PID 23727)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">📡 PacketStream installed & running</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">📡 Honeygain running (auto-start)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">🦁 Brave Browser + Rewards active</div>
+                    <div class="task-item done">Researched Google Play settlement ($30-70)</div>
+                    <div class="task-item done">Researched Apple Siri settlement ($100)</div>
                     <div class="task-item done">Pawns.app phone verified</div>
+                    <div class="task-item done">March settlements research (10+)</div>
+                    <div class="task-item done">Created earnings tracking system</div>
                 </div>
                 <div class="task-list" id="mike-active">
                     <h4>🔄 Active</h4>
+                    <div class="task-item active priority">📧 Repocket email verification pending</div>
                     <div class="task-item active">CA Unclaimed Property search (needs Erica)</div>
-                    <div class="task-item active">Honeygain login pending</div>
-                    <div class="task-item active">Brave Rewards setup pending</div>
+                    <div class="task-item active">🔐 EarnApp dashboard login needed</div>
+                    <div class="task-item active">💳 March settlement claims (10+ deadlines)</div>
                 </div>
                 <div class="task-list" id="mike-pending">
                     <h4>📋 Pending</h4>
                     <div class="task-item pending">File Apple Siri claim (deadline July 2025)</div>
-                    <div class="task-item pending">Execute cashback app signups</div>
+                    <div class="task-item pending">Set up Docker money4band stack</div>
+                    <div class="task-item pending">Cashback app signups (Rakuten, Ibotta)</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -1078,31 +1097,40 @@
                 <span class="status-badge status-active pulse">Active</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'diane-done')">
-                        <div class="stat-value">3</div>
+                        <div class="stat-value">9</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'diane-active')">
-                        <div class="stat-value">0</div>
+                        <div class="stat-value">2</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'diane-pending')">
-                        <div class="stat-value">0</div>
+                        <div class="stat-value">3</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
                 <div class="task-list" id="diane-done">
                     <h4>✅ Completed</h4>
+                    <div class="task-item done" style="border-left-color: #00ff88;">📊 Subscription Audit Excel — 35 subs tracked (Mar 23)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">📱 CDI Social Headers — All platforms (Mar 20)</div>
+                    <div class="task-item done" style="border-left-color: #00ff88;">🎬 MHMM Treatment V3 update (Mar 13)</div>
                     <div class="task-item done" style="border-left-color: #ffd700;">🎨 Keynote Editor skill created — Mar 13</div>
-                    <div class="task-item done" style="border-left-color: #ffd700;">🔤 Raleway fonts installed — Mar 13</div>
+                    <div class="task-item done" style="border-left-color: #ffd700;">📝 EPF Form design — Fillout branded</div>
+                    <div class="task-item done">🌐 Bring Back the Block website</div>
+                    <div class="task-item done">🎨 CDI Brand Identity study (B&W only!)</div>
+                    <div class="task-item done">🔤 Raleway fonts installed</div>
                     <div class="task-item done">Hotel Outreach CRM redesign ✨</div>
                 </div>
                 <div class="task-list" id="diane-active">
                     <h4>🔄 Active</h4>
-                    <div class="task-item active">Ready for design tasks</div>
+                    <div class="task-item active priority">📸 Erica D. Hayes EPK design (new media kit)</div>
+                    <div class="task-item active">🔧 EPF Guardian Signature conditional logic</div>
                 </div>
                 <div class="task-list" id="diane-pending">
                     <h4>📋 Pending</h4>
-                    <div class="task-item pending">None - Keynote ready!</div>
+                    <div class="task-item pending">EPF required vs optional field markers</div>
+                    <div class="task-item pending">EPF "How Did You Hear About Us?" field</div>
+                    <div class="task-item pending">EPF Thank You page customization</div>
                 </div>
                 <div class="expand-hint">👆 Tap numbers to see tasks</div>
             </div>
@@ -1179,15 +1207,15 @@
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">112</div>
+                <div class="summary-value">118</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">41</div>
+                <div class="summary-value">43</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">41</div>
+                <div class="summary-value">42</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
