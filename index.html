@@ -281,8 +281,23 @@
     <div class="container">
         <header>
             <h1>🎛️ Agent Command Center</h1>
-            <p class="last-updated">Last Updated: Monday, April 6, 2026 — 4:56 PM PST</p>
+            <p class="last-updated">Last Updated: Monday, April 6, 2026 — 6:50 PM PST</p>
         </header>
+        
+        <!-- INBOX PROCESSING ALERT -->
+        <div class="priority-banner" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 152, 0, 0.25) 100%); border: 2px solid rgba(255, 107, 107, 0.6); box-shadow: 0 0 30px rgba(255, 107, 107, 0.2);">
+            <div class="priority-header">
+                <span class="priority-icon">📥</span>
+                <span class="priority-title" style="color: #ff6b6b;">INBOX PROCESSING ALERT</span>
+                <span class="priority-subtitle" style="color: #ffab91;">11 items unprocessed across 3 agents</span>
+            </div>
+            <div class="priority-details">
+                <div class="priority-item"><span class="priority-wait">📚</span> CBU Agent: 8 files (35+ days old)</div>
+                <div class="priority-item"><span class="priority-wait">🎚️</span> CDI Agent: 2 files (38 days old)</div>
+                <div class="priority-item"><span class="priority-wait">🎵</span> Sage Agent: 1 file (38 days old)</div>
+                <div class="priority-item"><span class="priority-pending">⏳</span> All agents need inbox cleanup!</div>
+            </div>
+        </div>
         
         <!-- Upcoming Focus Banner -->
         <div class="priority-banner" style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(123, 47, 247, 0.25) 100%); border: 2px solid rgba(0, 212, 255, 0.6); box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);">
@@ -694,15 +709,15 @@
                 <span class="status-badge status-priority pulse">Priority</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'kofi-done')">
-                        <div class="stat-value">17</div>
+                        <div class="stat-value">19</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'kofi-active')">
-                        <div class="stat-value">5</div>
+                        <div class="stat-value">6</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'kofi-pending')">
-                        <div class="stat-value">6</div>
+                        <div class="stat-value">5</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -758,15 +773,15 @@
                 <span class="status-badge status-priority pulse">Priority</span>
                 <div class="task-stats">
                     <div class="stat completed" onclick="toggleTasks(this, 'kojo-done')">
-                        <div class="stat-value">23</div>
+                        <div class="stat-value">25</div>
                         <div class="stat-label">Done</div>
                     </div>
                     <div class="stat in-progress" onclick="toggleTasks(this, 'kojo-active')">
-                        <div class="stat-value">5</div>
+                        <div class="stat-value">6</div>
                         <div class="stat-label">Active</div>
                     </div>
                     <div class="stat remaining" onclick="toggleTasks(this, 'kojo-pending')">
-                        <div class="stat-value">10</div>
+                        <div class="stat-value">8</div>
                         <div class="stat-label">Pending</div>
                     </div>
                 </div>
@@ -798,6 +813,7 @@
                     <h4>🔄 Active</h4>
                     <div class="task-item active priority">🇬🇭 Contact Nana Kwame for attestation letter</div>
                     <div class="task-item active priority">📄 Get Nana Kwame Ghana Card copy</div>
+                    <div class="task-item active priority">📥 INBOX ALERT: 2 unprocessed items (38 days!)</div>
                     <div class="task-item active">Submit Form 1023-EZ ($275)</div>
                     <div class="task-item active">Ghana CLG registration</div>
                     <div class="task-item active">Partnership outreach automation</div>
@@ -904,6 +920,7 @@
                 <div class="task-list" id="lisa-active">
                     <h4>🔄 Active</h4>
                     <div class="task-item done" style="border-left-color: #00ff88;">✅ Week 12 — Unit Quiz 6 DONE (Apr 1)</div>
+                    <div class="task-item active priority">📥 INBOX ALERT: 8 unprocessed items (35+ days!)</div>
                     <div class="task-item active">CBU Progress Reports — in progress</div>
                     <div class="task-item active">Monitor assignment deadlines</div>
                 </div>
@@ -1207,15 +1224,15 @@
                 <div class="summary-label">Active Now</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">119</div>
+                <div class="summary-value">131</div>
                 <div class="summary-label">Tasks Completed</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">42</div>
+                <div class="summary-value">49</div>
                 <div class="summary-label">In Progress</div>
             </div>
             <div class="summary-stat">
-                <div class="summary-value">42</div>
+                <div class="summary-value">43</div>
                 <div class="summary-label">Pending</div>
             </div>
         </div>
